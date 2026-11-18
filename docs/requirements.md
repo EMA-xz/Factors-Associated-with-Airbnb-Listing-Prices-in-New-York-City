@@ -9,10 +9,10 @@ its requirements; proposed implementation choices are labeled separately.
 - [ ] Names and UNIs of 3-5 teammates.
 - [x] Collect real data and document its source (initial audit completed).
 - [ ] Describe the collected data in the submission.
-- [ ] Include insightful descriptive statistics.
-- [ ] Include at least four informative plots; try to show at least three dimensions in one.
-- [ ] Explain the statistics and plots in relation to the project.
-- [ ] State research objectives/questions.
+- [x] Generate insightful descriptive statistics (reports/eda/; still to incorporate into submission).
+- [x] Generate at least four informative plots, with four variables shown in Figure 4.
+- [x] Explain the statistics and plots in the generated EDA report (still to incorporate into submission).
+- [x] State research objectives/questions in the EDA report and analysis plan.
 
 ## Final submission
 
@@ -46,7 +46,7 @@ AI-assisted sourcing of real data; follow any additional course AI rules.
 
 - [x] Fixed source file, checksum and repeatable import/audit.
 - [x] Preserve raw data; flag exclusions and missingness explicitly.
-- [ ] Generate every figure and analytical statistic with R.
+- [x] Generate every current figure and analytical statistic with R; retain this rule for later stages.
 - [ ] Fit the model only after reviewing sample coverage and variable definitions.
 - [ ] Keep the report, including appendix, within approximately ten pages where possible.
 - [ ] Run the complete pipeline and cross-check the submitted report against its outputs.

@@ -1,0 +1,9 @@
+"borough","room_type","price_status","n","accommodates_observed_n","accommodates_median","bedrooms_observed_n","bedrooms_median","minimum_nights_observed_n","minimum_nights_median","rating_observed_n","rating_missing_pct"
+"Brooklyn","Entire home/apt","No usable price",2304,2304,3,2302,1,2303,30,1900,17.5347222222222
+"Brooklyn","Entire home/apt","Observed positive price",3009,3009,4,3002,1,3009,30,2407,20.0066467264872
+"Brooklyn","Private room","No usable price",1619,1619,2,1619,1,1619,30,1260,22.1741815935763
+"Brooklyn","Private room","Observed positive price",3234,3234,2,3233,1,3233,30,2434,24.7371675943105
+"Manhattan","Entire home/apt","No usable price",3416,3416,2,3415,1,3416,30,2104,38.4074941451991
+"Manhattan","Entire home/apt","Observed positive price",5506,5506,3,5492,1,5504,30,3847,30.1307664366146
+"Manhattan","Private room","No usable price",1455,1455,2,1455,1,1455,30,1066,26.7353951890034
+"Manhattan","Private room","Observed positive price",2897,2897,2,2895,1,2894,3,2087,27.9599585778391

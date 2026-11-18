@@ -1,0 +1,20 @@
+"borough","room_type","stay_group","hotel_like_label","n","median_price_usd"
+"Brooklyn","Entire home/apt","1-29 nights",FALSE,396,376
+"Brooklyn","Entire home/apt","1-29 nights",TRUE,3,287.5
+"Brooklyn","Entire home/apt","30+ nights",FALSE,2610,180.02
+"Brooklyn","Private room","1-29 nights",FALSE,881,224
+"Brooklyn","Private room","1-29 nights",TRUE,93,488.75
+"Brooklyn","Private room","30+ nights",FALSE,2254,74.2
+"Brooklyn","Private room","30+ nights",TRUE,5,168.8
+"Brooklyn","Private room","Missing/invalid",TRUE,1,449
+"Manhattan","Entire home/apt","1-29 nights",FALSE,830,523
+"Manhattan","Entire home/apt","1-29 nights",TRUE,52,287.265
+"Manhattan","Entire home/apt","30+ nights",FALSE,4616,230.62
+"Manhattan","Entire home/apt","30+ nights",TRUE,6,226.615
+"Manhattan","Entire home/apt","Missing/invalid",FALSE,2,230.6
+"Manhattan","Private room","1-29 nights",FALSE,303,277.7
+"Manhattan","Private room","1-29 nights",TRUE,1232,574.215
+"Manhattan","Private room","30+ nights",FALSE,1289,88.73
+"Manhattan","Private room","30+ nights",TRUE,70,223.8
+"Manhattan","Private room","Missing/invalid",FALSE,1,119.83
+"Manhattan","Private room","Missing/invalid",TRUE,2,265

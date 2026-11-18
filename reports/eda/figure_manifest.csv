@@ -1,0 +1,5 @@
+"figure","file","sample_n","additional_excluded_n","notes"
+1,"01_raw_price_distribution.png",14646,0,"Full sample; second panel only zooms display"
+2,"02_log_price_distribution.png",14646,0,"Natural log; same sample"
+3,"03_price_by_borough_room_type.png",14646,0,"Unadjusted; all outliers retained"
+4,"04_capacity_price_multidimensional.png",14646,0,"Capacity valid; fixed horizontal jitter seed"

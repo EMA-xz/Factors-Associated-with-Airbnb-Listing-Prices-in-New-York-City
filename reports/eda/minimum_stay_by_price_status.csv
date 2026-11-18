@@ -1,0 +1,21 @@
+"borough","room_type","price_status","stay_group","n","status_group_n","within_status_pct"
+"Brooklyn","Entire home/apt","No usable price","1-29 nights",25,2304,1.08506944444444
+"Brooklyn","Entire home/apt","No usable price","30+ nights",2278,2304,98.8715277777778
+"Brooklyn","Entire home/apt","No usable price","Missing/invalid",1,2304,0.0434027777777778
+"Brooklyn","Entire home/apt","Observed positive price","1-29 nights",399,3009,13.2602193419741
+"Brooklyn","Entire home/apt","Observed positive price","30+ nights",2610,3009,86.7397806580259
+"Brooklyn","Private room","No usable price","1-29 nights",77,1619,4.75602223594812
+"Brooklyn","Private room","No usable price","30+ nights",1542,1619,95.2439777640519
+"Brooklyn","Private room","Observed positive price","1-29 nights",974,3234,30.117501546073
+"Brooklyn","Private room","Observed positive price","30+ nights",2259,3234,69.8515769944341
+"Brooklyn","Private room","Observed positive price","Missing/invalid",1,3234,0.0309214594928881
+"Manhattan","Entire home/apt","No usable price","1-29 nights",68,3416,1.99063231850117
+"Manhattan","Entire home/apt","No usable price","30+ nights",3348,3416,98.0093676814988
+"Manhattan","Entire home/apt","Observed positive price","1-29 nights",882,5506,16.0188884852888
+"Manhattan","Entire home/apt","Observed positive price","30+ nights",4622,5506,83.9447875045405
+"Manhattan","Entire home/apt","Observed positive price","Missing/invalid",2,5506,0.0363240101707228
+"Manhattan","Private room","No usable price","1-29 nights",383,1455,26.3230240549828
+"Manhattan","Private room","No usable price","30+ nights",1072,1455,73.6769759450172
+"Manhattan","Private room","Observed positive price","1-29 nights",1535,2897,52.9858474283742
+"Manhattan","Private room","Observed positive price","30+ nights",1359,2897,46.9105971694857
+"Manhattan","Private room","Observed positive price","Missing/invalid",3,2897,0.103555402140145

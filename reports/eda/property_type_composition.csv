@@ -1,0 +1,129 @@
+"borough","room_type","price_status","property_type","n"
+"Brooklyn","Entire home/apt","No usable price","Barn",1
+"Brooklyn","Entire home/apt","No usable price","Casa particular",1
+"Brooklyn","Entire home/apt","No usable price","Cave",1
+"Brooklyn","Entire home/apt","No usable price","Entire condo",175
+"Brooklyn","Entire home/apt","No usable price","Entire guest suite",19
+"Brooklyn","Entire home/apt","No usable price","Entire guesthouse",1
+"Brooklyn","Entire home/apt","No usable price","Entire home",143
+"Brooklyn","Entire home/apt","No usable price","Entire loft",94
+"Brooklyn","Entire home/apt","No usable price","Entire place",4
+"Brooklyn","Entire home/apt","No usable price","Entire rental unit",1760
+"Brooklyn","Entire home/apt","No usable price","Entire serviced apartment",5
+"Brooklyn","Entire home/apt","No usable price","Entire townhouse",96
+"Brooklyn","Entire home/apt","No usable price","Entire vacation home",1
+"Brooklyn","Entire home/apt","No usable price","Floor",2
+"Brooklyn","Entire home/apt","No usable price","Tiny home",1
+"Brooklyn","Entire home/apt","Observed positive price","Boat",3
+"Brooklyn","Entire home/apt","Observed positive price","Camper/RV",1
+"Brooklyn","Entire home/apt","Observed positive price","Casa particular",1
+"Brooklyn","Entire home/apt","Observed positive price","Entire bungalow",2
+"Brooklyn","Entire home/apt","Observed positive price","Entire condo",177
+"Brooklyn","Entire home/apt","Observed positive price","Entire cottage",1
+"Brooklyn","Entire home/apt","Observed positive price","Entire guest suite",114
+"Brooklyn","Entire home/apt","Observed positive price","Entire guesthouse",4
+"Brooklyn","Entire home/apt","Observed positive price","Entire home",360
+"Brooklyn","Entire home/apt","Observed positive price","Entire loft",101
+"Brooklyn","Entire home/apt","Observed positive price","Entire place",10
+"Brooklyn","Entire home/apt","Observed positive price","Entire rental unit",2048
+"Brooklyn","Entire home/apt","Observed positive price","Entire serviced apartment",10
+"Brooklyn","Entire home/apt","Observed positive price","Entire townhouse",165
+"Brooklyn","Entire home/apt","Observed positive price","Entire vacation home",6
+"Brooklyn","Entire home/apt","Observed positive price","Entire villa",1
+"Brooklyn","Entire home/apt","Observed positive price","Houseboat",1
+"Brooklyn","Entire home/apt","Observed positive price","Room in aparthotel",2
+"Brooklyn","Entire home/apt","Observed positive price","Room in boutique hotel",1
+"Brooklyn","Entire home/apt","Observed positive price","Tiny home",1
+"Brooklyn","Private room","No usable price","Private room",3
+"Brooklyn","Private room","No usable price","Private room in bed and breakfast",2
+"Brooklyn","Private room","No usable price","Private room in condo",45
+"Brooklyn","Private room","No usable price","Private room in guest suite",16
+"Brooklyn","Private room","No usable price","Private room in home",166
+"Brooklyn","Private room","No usable price","Private room in loft",55
+"Brooklyn","Private room","No usable price","Private room in rental unit",1191
+"Brooklyn","Private room","No usable price","Private room in serviced apartment",2
+"Brooklyn","Private room","No usable price","Private room in tiny home",1
+"Brooklyn","Private room","No usable price","Private room in townhouse",127
+"Brooklyn","Private room","No usable price","Private room in vacation home",1
+"Brooklyn","Private room","No usable price","Room in boutique hotel",6
+"Brooklyn","Private room","No usable price","Room in hotel",4
+"Brooklyn","Private room","Observed positive price","Private room",9
+"Brooklyn","Private room","Observed positive price","Private room in bed and breakfast",17
+"Brooklyn","Private room","Observed positive price","Private room in bungalow",1
+"Brooklyn","Private room","Observed positive price","Private room in casa particular",8
+"Brooklyn","Private room","Observed positive price","Private room in condo",111
+"Brooklyn","Private room","Observed positive price","Private room in cottage",1
+"Brooklyn","Private room","Observed positive price","Private room in earthen home",2
+"Brooklyn","Private room","Observed positive price","Private room in guest suite",58
+"Brooklyn","Private room","Observed positive price","Private room in guesthouse",5
+"Brooklyn","Private room","Observed positive price","Private room in home",741
+"Brooklyn","Private room","Observed positive price","Private room in houseboat",2
+"Brooklyn","Private room","Observed positive price","Private room in loft",39
+"Brooklyn","Private room","Observed positive price","Private room in religious building",1
+"Brooklyn","Private room","Observed positive price","Private room in rental unit",1814
+"Brooklyn","Private room","Observed positive price","Private room in serviced apartment",22
+"Brooklyn","Private room","Observed positive price","Private room in tiny home",1
+"Brooklyn","Private room","Observed positive price","Private room in townhouse",297
+"Brooklyn","Private room","Observed positive price","Private room in vacation home",2
+"Brooklyn","Private room","Observed positive price","Private room in villa",4
+"Brooklyn","Private room","Observed positive price","Room in boutique hotel",3
+"Brooklyn","Private room","Observed positive price","Room in hotel",96
+"Manhattan","Entire home/apt","No usable price","Entire condo",177
+"Manhattan","Entire home/apt","No usable price","Entire guest suite",5
+"Manhattan","Entire home/apt","No usable price","Entire home",26
+"Manhattan","Entire home/apt","No usable price","Entire loft",51
+"Manhattan","Entire home/apt","No usable price","Entire place",1
+"Manhattan","Entire home/apt","No usable price","Entire rental unit",3105
+"Manhattan","Entire home/apt","No usable price","Entire serviced apartment",29
+"Manhattan","Entire home/apt","No usable price","Entire townhouse",17
+"Manhattan","Entire home/apt","No usable price","Room in aparthotel",5
+"Manhattan","Entire home/apt","Observed positive price","Boat",1
+"Manhattan","Entire home/apt","Observed positive price","Dome",1
+"Manhattan","Entire home/apt","Observed positive price","Entire condo",327
+"Manhattan","Entire home/apt","Observed positive price","Entire guest suite",23
+"Manhattan","Entire home/apt","Observed positive price","Entire guesthouse",4
+"Manhattan","Entire home/apt","Observed positive price","Entire home",56
+"Manhattan","Entire home/apt","Observed positive price","Entire loft",106
+"Manhattan","Entire home/apt","Observed positive price","Entire place",24
+"Manhattan","Entire home/apt","Observed positive price","Entire rental unit",4703
+"Manhattan","Entire home/apt","Observed positive price","Entire serviced apartment",131
+"Manhattan","Entire home/apt","Observed positive price","Entire townhouse",65
+"Manhattan","Entire home/apt","Observed positive price","Entire vacation home",2
+"Manhattan","Entire home/apt","Observed positive price","Entire villa",1
+"Manhattan","Entire home/apt","Observed positive price","Room in aparthotel",53
+"Manhattan","Entire home/apt","Observed positive price","Room in hotel",5
+"Manhattan","Entire home/apt","Observed positive price","Tiny home",1
+"Manhattan","Entire home/apt","Observed positive price","Tower",3
+"Manhattan","Private room","No usable price","Private room in bed and breakfast",2
+"Manhattan","Private room","No usable price","Private room in condo",50
+"Manhattan","Private room","No usable price","Private room in guest suite",2
+"Manhattan","Private room","No usable price","Private room in guesthouse",2
+"Manhattan","Private room","No usable price","Private room in home",16
+"Manhattan","Private room","No usable price","Private room in hostel",1
+"Manhattan","Private room","No usable price","Private room in loft",8
+"Manhattan","Private room","No usable price","Private room in rental unit",942
+"Manhattan","Private room","No usable price","Private room in resort",2
+"Manhattan","Private room","No usable price","Private room in serviced apartment",4
+"Manhattan","Private room","No usable price","Private room in tent",1
+"Manhattan","Private room","No usable price","Private room in townhouse",64
+"Manhattan","Private room","No usable price","Room in boutique hotel",19
+"Manhattan","Private room","No usable price","Room in hotel",342
+"Manhattan","Private room","Observed positive price","Private room",4
+"Manhattan","Private room","Observed positive price","Private room in bed and breakfast",9
+"Manhattan","Private room","Observed positive price","Private room in bungalow",1
+"Manhattan","Private room","Observed positive price","Private room in condo",110
+"Manhattan","Private room","Observed positive price","Private room in guest suite",15
+"Manhattan","Private room","Observed positive price","Private room in guesthouse",20
+"Manhattan","Private room","Observed positive price","Private room in home",36
+"Manhattan","Private room","Observed positive price","Private room in hostel",27
+"Manhattan","Private room","Observed positive price","Private room in kezhan",1
+"Manhattan","Private room","Observed positive price","Private room in loft",22
+"Manhattan","Private room","Observed positive price","Private room in rental unit",1270
+"Manhattan","Private room","Observed positive price","Private room in resort",46
+"Manhattan","Private room","Observed positive price","Private room in serviced apartment",4
+"Manhattan","Private room","Observed positive price","Private room in tiny home",1
+"Manhattan","Private room","Observed positive price","Private room in townhouse",98
+"Manhattan","Private room","Observed positive price","Private room in vacation home",2
+"Manhattan","Private room","Observed positive price","Room in aparthotel",5
+"Manhattan","Private room","Observed positive price","Room in boutique hotel",106
+"Manhattan","Private room","Observed positive price","Room in hotel",1120

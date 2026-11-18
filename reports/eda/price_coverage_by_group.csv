@@ -1,0 +1,5 @@
+"borough","room_type","scoped_n","observed_positive_n","missing_price_n","unusable_price_n","missing_price_pct","positive_price_pct"
+"Brooklyn","Entire home/apt",5313,3009,2304,2304,43.3653303218521,56.6346696781479
+"Brooklyn","Private room",4853,3234,1619,1619,33.3608077477849,66.6391922522151
+"Manhattan","Entire home/apt",8922,5506,3416,3416,38.2873795113203,61.7126204886797
+"Manhattan","Private room",4352,2897,1455,1455,33.4329044117647,66.5670955882353
