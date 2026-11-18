@@ -1,0 +1,13 @@
+"borough","room_type","exclusion_reason","n"
+"Brooklyn","Entire home/apt","Included",3002
+"Brooklyn","Entire home/apt","Missing or invalid core covariate",7
+"Brooklyn","Entire home/apt","No finite positive price",2304
+"Brooklyn","Private room","Included",3232
+"Brooklyn","Private room","Missing or invalid core covariate",2
+"Brooklyn","Private room","No finite positive price",1619
+"Manhattan","Entire home/apt","Included",5490
+"Manhattan","Entire home/apt","Missing or invalid core covariate",16
+"Manhattan","Entire home/apt","No finite positive price",3416
+"Manhattan","Private room","Included",2892
+"Manhattan","Private room","Missing or invalid core covariate",5
+"Manhattan","Private room","No finite positive price",1455

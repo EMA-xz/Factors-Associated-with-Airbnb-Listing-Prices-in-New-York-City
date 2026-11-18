@@ -1,0 +1,5 @@
+"sample","partition","listings_n","hosts_n"
+"primary","test",3048,1391
+"primary","train",11568,5564
+"without_hotel_labels","test",2762,1335
+"without_hotel_labels","train",10393,5327

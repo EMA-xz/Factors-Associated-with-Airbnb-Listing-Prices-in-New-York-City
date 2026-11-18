@@ -1,0 +1,4 @@
+"model","formula"
+"M0","log_price ~ borough + room_type"
+"M1","log_price ~ borough + room_type + accommodates + bedrooms + log_minimum_nights + long_stay"
+"M2","log_price ~ borough * room_type + accommodates + bedrooms + log_minimum_nights + long_stay"

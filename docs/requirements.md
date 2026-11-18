@@ -8,11 +8,15 @@ its requirements; proposed implementation choices are labeled separately.
 
 - [ ] Names and UNIs of 3-5 teammates.
 - [x] Collect real data and document its source (initial audit completed).
-- [ ] Describe the collected data in the submission.
-- [x] Generate insightful descriptive statistics (reports/eda/; still to incorporate into submission).
+- [x] Describe the collected data in the generated initial report.
+- [x] Generate insightful descriptive statistics and incorporate them into the initial report.
 - [x] Generate at least four informative plots, with four variables shown in Figure 4.
-- [x] Explain the statistics and plots in the generated EDA report (still to incorporate into submission).
+- [x] Explain the statistics and plots in the initial report.
 - [x] State research objectives/questions in the EDA report and analysis plan.
+
+The initial report is generated in reports/project_description/ as PDF, DOCX and
+Markdown. It is not yet ready to submit: team names/UNIs remain blank, and the
+team must review any additional classroom instructions.
 
 ## Final submission
 

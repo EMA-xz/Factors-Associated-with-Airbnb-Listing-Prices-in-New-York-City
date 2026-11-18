@@ -1,0 +1,17 @@
+"sample","partition","borough","room_type","listings_n","hosts_n"
+"primary","test","Brooklyn","Private room",547,361
+"primary","test","Brooklyn","Entire home/apt",612,473
+"primary","test","Manhattan","Private room",595,251
+"primary","test","Manhattan","Entire home/apt",1294,378
+"primary","train","Brooklyn","Private room",2685,1586
+"primary","train","Brooklyn","Entire home/apt",2390,1821
+"primary","train","Manhattan","Private room",2297,946
+"primary","train","Manhattan","Entire home/apt",4196,1495
+"without_hotel_labels","test","Brooklyn","Private room",528,357
+"without_hotel_labels","test","Brooklyn","Entire home/apt",612,473
+"without_hotel_labels","test","Manhattan","Private room",341,197
+"without_hotel_labels","test","Manhattan","Entire home/apt",1281,378
+"without_hotel_labels","train","Brooklyn","Private room",2606,1555
+"without_hotel_labels","train","Brooklyn","Entire home/apt",2387,1820
+"without_hotel_labels","train","Manhattan","Private room",1249,724
+"without_hotel_labels","train","Manhattan","Entire home/apt",4151,1493
