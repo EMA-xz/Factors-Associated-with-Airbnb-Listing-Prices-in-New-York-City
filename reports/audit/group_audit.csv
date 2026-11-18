@@ -1,0 +1,5 @@
+"borough","room_type","scoped_n","missing_price_n","valid_price_n","valid_price_pct","core_complete_n","rating_missing_in_eda_n","median_price_usd","minimum_nights_ge30_in_eda_n"
+"Brooklyn","Entire home/apt",5313,2304,3009,56.6346696781479,3002,602,195.53,2610
+"Manhattan","Entire home/apt",8922,3416,5506,61.7126204886797,5490,1659,254.54,4622
+"Brooklyn","Private room",4853,1619,3234,66.6391922522151,3232,800,101.01,2259
+"Manhattan","Private room",4352,1455,2897,66.5670955882353,2892,810,256,1359

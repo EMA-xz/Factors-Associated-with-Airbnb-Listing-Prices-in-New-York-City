@@ -1,0 +1,2 @@
+"provider","snapshot_label","observed_scrape_min","observed_scrape_max","url","local_file","bytes","md5","sha256_at_acquisition","raw_rows","raw_columns"
+"Inside Airbnb","2026-09-14","2026-09-14","2026-09-15","https://data.insideairbnb.com/united-states/ny/new-york-city/2026-09-14/data/listings.csv.gz","data/raw/nyc_listings_2026-09-14.csv.gz",16005851,"d246ef4c52a914b514419cb5839dd9d7","a67bf574e47aa6eba5b2262987dbd9684f206d5cd0183470056f9c936b8e7ae1",29918,90
