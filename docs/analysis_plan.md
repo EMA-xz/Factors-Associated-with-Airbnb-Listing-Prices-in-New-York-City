@@ -1,4 +1,4 @@
-# Analysis plan (proposed, not empirical conclusions)
+# Analysis plan and documented modeling decisions
 
 ## Research questions
 
@@ -86,3 +86,29 @@ with training residual MSE on the log-price scale; specify the MSE degrees of
 freedom. Do not repeatedly tune against the held-out test set. Inspect residuals,
 variance, collinearity, leverage and Cook's distance. Report effect sizes and
 confidence intervals alongside tests. Interpret associations, not causal effects.
+
+## Training-model stage
+
+The original `config/model_spec.R` remains the pre-fit record. Scripts 09-10 now
+fit those candidates on the saved training hosts and retain both room types.
+Ordinary R summaries are saved, while the main uncertainty calculations allow
+within-host dependence through host-cluster HC1 covariance. All conditional
+comparisons account for the interaction. Primary and property-label sensitivity
+analyses use the same model form and inherited train/test split.
+
+After inspecting M2 training residuals, one refinement was recorded in
+`config/model_refinement.R`: log capacity replaces linear capacity. Log minimum
+nights is also centered within the two stay regimes, an equivalent reparameterization
+of those terms. Script 11 checks the equivalence, compares candidates using five
+training-host folds, and repeats diagnostics, sensitivity and influence checks.
+The refinement was motivated by the training data, so internal CV and inferential
+results are exploratory; they do not assess the entire selection process without
+optimism. No reserved test errors have been computed.
+
+M3 is a working specification, not a declaration that all assumptions hold.
+See `reports/modeling/training_report.md` for calculated results and remaining
+limitations. Retain the planned interaction to address the research question;
+do not choose the sample or specification to obtain significance. Remaining
+group residual patterns, sparse covariate combinations and host concentration
+must be addressed or explicitly acknowledged before freezing the final model.
+Rating sensitivity is optional future work, not an implemented analysis.

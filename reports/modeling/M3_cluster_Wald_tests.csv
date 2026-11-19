@@ -1,0 +1,7 @@
+"analysis","hypothesis","approx_cluster_F","df1","df2","p","p_Holm_three_questions"
+"Primary M3","No borough association at either room type",64.84112163954,2,5563,1.45570613221659e-28,4.36711839664976e-28
+"Primary M3","No room-type association in either borough",32.3986335328716,2,5563,1.02510316678304e-14,2.05020633356608e-14
+"Primary M3","No borough by room-type interaction",0.182926997535813,1,5563,0.668886354042923,0.668886354042923
+"M3 without hotel labels","No borough association at either room type",24.3218682778404,2,5326,3.05556653964083e-11,6.11113307928165e-11
+"M3 without hotel labels","No room-type association in either borough",25.4732759989446,2,5326,9.76503047396743e-12,2.92950914219023e-11
+"M3 without hotel labels","No borough by room-type interaction",6.12450203883276,1,5326,0.013362989210838,0.013362989210838

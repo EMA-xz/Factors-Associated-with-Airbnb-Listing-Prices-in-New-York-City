@@ -8,3 +8,5 @@ data/processed/*
 !data/raw/.gitkeep
 !data/processed/.gitkeep
 *.download
+.r-library/
+models/

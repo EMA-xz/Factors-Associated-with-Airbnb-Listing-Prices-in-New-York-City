@@ -51,6 +51,14 @@ AI-assisted sourcing of real data; follow any additional course AI rules.
 - [x] Fixed source file, checksum and repeatable import/audit.
 - [x] Preserve raw data; flag exclusions and missingness explicitly.
 - [x] Generate every current figure and analytical statistic with R; retain this rule for later stages.
-- [ ] Fit the model only after reviewing sample coverage and variable definitions.
+- [x] Fit training candidates after reviewing sample coverage and variable definitions.
+- [x] Generate training diagnostics, inferential tests, property-label sensitivity and influence checks.
+- [x] Document one training-driven functional-form revision and host-level internal validation.
+- [ ] Freeze the final specification and evaluate reserved hosts once.
 - [ ] Keep the report, including appendix, within approximately ten pages where possible.
 - [ ] Run the complete pipeline and cross-check the submitted report against its outputs.
+
+The training-stage work is in `reports/modeling/training_report.md`. It supplies
+material for the final-report sections above, but does not complete the final
+report, held-out evaluation or team review. Private room remains in the primary
+analysis and in the property-label sensitivity subset.

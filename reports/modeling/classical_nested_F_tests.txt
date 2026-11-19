@@ -1,0 +1,13 @@
+Analysis of Variance Table
+
+Model 1: log_price ~ borough + room_type
+Model 2: log_price ~ borough + room_type + accommodates + bedrooms + log_minimum_nights +
+    long_stay
+Model 3: log_price ~ borough * room_type + accommodates + bedrooms + log_minimum_nights +
+    long_stay
+  Res.Df    RSS Df Sum of Sq         F    Pr(>F)
+1  11565 7184.4
+2  11561 3995.6  4    3188.8 2308.0280 < 2.2e-16 ***
+3  11560 3992.8  1       2.8    8.1485  0.004317 **
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1

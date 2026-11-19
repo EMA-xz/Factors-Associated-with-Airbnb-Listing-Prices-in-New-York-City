@@ -28,7 +28,7 @@ Additional checks in the scripts reconcile group coverage, minimum-stay counts,
 property-type counts and histogram-bin counts to their source samples. The figure
 manifest records per-figure inclusion counts. All four PNGs were visually
 inspected for labels, legends, clipping, source captions and display exclusions.
-No inferential model has yet been fitted or validated.
+At that EDA stage, no inferential model had been fitted or validated.
 
 ## Project Description and model preparation
 
@@ -57,4 +57,34 @@ a local writable font cache. No visual QA intermediates are included in Git.
 Team names and UNIs have not been supplied. The blank roster is recorded as
 incomplete in report_payload.json and validation.json. Fill config/team.csv with
 the real 3-5 members and rebuild before submission. Rendering and integrity
-checks do not establish statistical-model validity; no regression is fitted yet.
+checks do not establish statistical-model validity. Those documents preserve the
+pre-regression proposal stage; subsequent model work is documented separately.
+
+## Training regression stage
+
+The complete training pipeline and separate verifier were run successfully with
+warnings treated as errors:
+
+```sh
+Rscript --vanilla -e 'options(warn=2); source("scripts/12_training_report.R"); source("scripts/13_verify_training.R")'
+```
+
+The verifier passed 28 checks. These include comparing `sandwich::vcovCL` with
+an independent host-score matrix calculation, checking conditional contrasts
+against prediction differences, validating interval transformations, checking
+the one-degree-of-freedom Wald/t identity, and confirming host/fold isolation
+and one validation prediction per training listing per candidate model.
+
+The command was repeated in a separate directory supplied only with committed
+scripts/configuration and the fixed raw file, using the same installed R/package
+environment. All 44 compared files were byte-for-byte identical: the modeling
+reports and six figures, primary/sensitivity model data, host split, training
+folds, internal-validation errors and M3 row-level diagnostics. Reproducibility
+across different rendering environments may differ at the pixel level. All six
+modeling figures were visually inspected; captions and intervals were checked.
+The earlier report's 79 integrity checks also still pass.
+
+These checks verify execution and numerical consistency, not full satisfaction
+of regression assumptions. Residual tail/scale patterns, population sensitivity
+and host concentration remain documented limitations. The reserved test hosts
+have not been scored, and the final course report has not been assembled.

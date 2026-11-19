@@ -1,0 +1,19 @@
+
+Call:
+lm(formula = as.formula(f), data = train, na.action = na.fail)
+
+Residuals:
+    Min      1Q  Median      3Q     Max
+-2.3988 -0.5964 -0.1050  0.5425  4.5958
+
+Coefficients:
+                         Estimate Std. Error t value Pr(>|t|)
+(Intercept)               4.86696    0.01314  370.53   <2e-16 ***
+boroughManhattan          0.51249    0.01500   34.16   <2e-16 ***
+room_typeEntire home/apt  0.38367    0.01503   25.52   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.7882 on 11565 degrees of freedom
+Multiple R-squared:  0.1594,	Adjusted R-squared:  0.1592
+F-statistic:  1096 on 2 and 11565 DF,  p-value: < 2.2e-16
