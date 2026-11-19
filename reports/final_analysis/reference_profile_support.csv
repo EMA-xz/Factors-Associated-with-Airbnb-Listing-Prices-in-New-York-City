@@ -1,0 +1,17 @@
+"borough","room_type","accommodates","bedrooms","long_stay","n"
+"Brooklyn","Private room","2","1","0",515
+"Manhattan","Private room","2","1","0",704
+"Brooklyn","Entire home/apt","2","1","0",85
+"Manhattan","Entire home/apt","2","1","0",103
+"Brooklyn","Private room","4","1","0",15
+"Manhattan","Private room","4","1","0",201
+"Brooklyn","Entire home/apt","4","1","0",24
+"Manhattan","Entire home/apt","4","1","0",71
+"Brooklyn","Private room","2","1","1",933
+"Manhattan","Private room","2","1","1",531
+"Brooklyn","Entire home/apt","2","1","1",535
+"Manhattan","Entire home/apt","2","1","1",971
+"Brooklyn","Private room","4","1","1",29
+"Manhattan","Private room","4","1","1",30
+"Brooklyn","Entire home/apt","4","1","1",159
+"Manhattan","Entire home/apt","4","1","1",243

@@ -1,0 +1,40 @@
+{
+  "version": "2026-11-19-final-v1",
+  "training_base_commit": "d576ba8",
+  "model": "M3",
+  "formula": "log_price ~ borough * room_type + log_accommodates + bedrooms + within_stay_log_min + long_stay",
+  "response": "natural log of positive daily listing price",
+  "capacity_reference": 2,
+  "borough_levels": ["Brooklyn", "Manhattan"],
+  "room_type_levels": ["Private room", "Entire home/apt"],
+  "stay_centers": {
+    "0": 0.314708427326357,
+    "1": 3.42617953523431
+  },
+  "coefficients": {
+    "(Intercept)": 5.0398570471449,
+    "boroughManhattan": 0.451737221391304,
+    "room_typeEntire home/apt": 0.385362175038003,
+    "log_accommodates": 0.44904167126591,
+    "bedrooms": 0.112506489118137,
+    "within_stay_log_min": -0.0833168779085823,
+    "long_stay": -0.914670090301071,
+    "boroughManhattan:room_typeEntire home/apt": -0.0383458398852191
+  },
+  "raw_md5": "d246ef4c52a914b514419cb5839dd9d7",
+  "split_md5": "0c60219da3287a4eb53c2e98d51deb5b",
+  "primary_data_md5": "7f18ed6eff03734279b08423f5eaf5ce",
+  "training_n": 11568,
+  "training_hosts": 5564,
+  "design_rank": 8,
+  "training_residual_MSE": 0.335738908393905,
+  "benchmark_training_mean_log_price": 5.37304593107391,
+  "rule": "M4 must improve both saved-fold CV MSE metrics by at least 1%; otherwise M3. No further model search.",
+  "test_policy": "One frozen specification; compute log-scale MSPR without refitting or tuning. Repeated runs only verify identical outputs.",
+  "selection_source_md5": {
+    "config/model_spec.R": "4e33e0bf7a6910d4b41ad95ea64ad05d",
+    "config/model_refinement.R": "f873fb5e71fcf98057bbf61620594647",
+    "config/completion_review.R": "65ca29da48dee7ce04bf6726ef9b7f17",
+    "scripts/14_complete_training_review.R": "a5e313a6df59df1e5de03b55885be323"
+  }
+}
