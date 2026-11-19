@@ -1,0 +1,28 @@
+"check","passed"
+"Final model equals recorded M3",TRUE
+"Locked coefficients unchanged",TRUE
+"Saved centers learned in training",TRUE
+"Every eligible reserved listing scored exactly once",TRUE
+"No training and test host overlap",TRUE
+"Predictions equal locked manual design calculation",TRUE
+"Observed response is natural log price",TRUE
+"MSPR uses test denominator n",TRUE
+"Training MSE uses n minus rank",TRUE
+"RMSE and MSE ratio",TRUE
+"Benchmark uses training mean only",TRUE
+"Group counts reconcile",TRUE
+"Group MSPR weighted mean equals pooled MSPR",TRUE
+"Test sample sizes agree",TRUE
+"Equal-host score gives each host equal weight",TRUE
+"Final cluster SE matches independent matrix formula",TRUE
+"Final contrasts and interval covariance",TRUE
+"Geometric price transformation",TRUE
+"M4 validation covers training only once",TRUE
+"M4 CV score recalculated",TRUE
+"M3 retained under pre-recorded threshold",TRUE
+"Sensitivity training remains primary subset",TRUE
+"Locked selection source config/model_spec.R",TRUE
+"Locked selection source config/model_refinement.R",TRUE
+"Locked selection source config/completion_review.R",TRUE
+"Locked selection source scripts/14_complete_training_review.R",TRUE
+"Ten-page payload uses frozen model",TRUE

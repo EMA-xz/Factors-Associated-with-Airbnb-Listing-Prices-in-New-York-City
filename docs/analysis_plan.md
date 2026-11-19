@@ -112,3 +112,22 @@ do not choose the sample or specification to obtain significance. Remaining
 group residual patterns, sparse covariate combinations and host concentration
 must be addressed or explicitly acknowledged before freezing the final model.
 Rating sensitivity is optional future work, not an implemented analysis.
+
+## Final decision and reserved evaluation
+
+On 2026-11-19, `config/completion_review.R` recorded one additional candidate:
+M4 allows the log-capacity slope to differ by room type. A pragmatic adoption
+rule required at least 1% improvement in both pooled-listing and equal-host
+MSE on the SAME saved training-host folds. It did not meet that threshold, so
+M3 was retained. This is a parsimony rule, not a predictive-superiority test.
+Joint capacity-bedroom-stay support and deletion of each of the ten largest
+training hosts were also examined. Main sample eligibility did not change.
+
+Commit `26e8ecf` recorded `config/final_model_lock.json` and the decision before
+the first reserved-host score. Script 16 makes predictions with those training
+coefficients and centers, without fitting a model. The final report compares
+test MSPR with training RSS/(n-p), reports group errors and documents residual
+and selection limitations. All inference remains based on training records;
+there is no all-data refit. Future reruns reproduce the frozen result, not
+fresh model-selection experiments. See reports/final_analysis/ and the final
+report; earlier planning/status statements above are historical.

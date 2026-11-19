@@ -1,0 +1,2 @@
+"model","training_n","training_hosts","training_residual_df","training_MSE","test_n","test_hosts","test_MSPR","test_RMSE","test_to_training_MSE_ratio","test_mean_residual","test_MAE","equal_host_test_MSPR","training_mean_benchmark_MSPR","relative_improvement_vs_benchmark"
+"M3",11568,5564,11560,0.335738908393905,3048,1391,0.2880587190273,0.53671102003527,0.857984320033994,-0.0269271762615685,0.408740319290002,0.320112662095014,0.640024840341121,0.549925720267716

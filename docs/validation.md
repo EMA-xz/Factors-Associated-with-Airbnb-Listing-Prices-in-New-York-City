@@ -88,3 +88,42 @@ These checks verify execution and numerical consistency, not full satisfaction
 of regression assumptions. Residual tail/scale patterns, population sensitivity
 and host concentration remain documented limitations. The reserved test hosts
 have not been scored, and the final course report has not been assembled.
+
+## Final model and report verification on 2026-11-19
+
+The earlier entries describe their historical stages. The final model is now
+frozen and the reserved evaluation is complete. Commit `26e8ecf` recorded the
+model lock and decision before the first execution of the evaluation script.
+M3 is retained after the last training-only candidate failed the recorded
+adoption threshold. No specification change followed test scoring.
+
+Executed `Rscript --vanilla scripts/run_final_analysis.R` with warnings treated
+as errors. The 28 existing training checks and 27 final checks passed. The final
+checks independently reconstruct predictions from locked coefficients, verify
+host isolation and exact test coverage, recompute MSPR and training MSE with
+their correct denominators, check the baseline and group accounting, and verify
+cluster covariance, contrasts, the model lock and selection-code fingerprints.
+
+The PDF/Word renderer and `scripts/20_validate_final_report.py` passed 41 document
+checks: ten PDF pages, nine explicit DOCX page breaks, page-by-page report text
+and tables matching the R payload, original embedded figure hashes and source/
+model fingerprints. The standalone PDF and separately rendered DOCX each have
+ten pages. Every page was visually inspected for clipping, readability, tables,
+figure labels and page order; a clipped Cook-axis tick was corrected in plot code.
+Multi-guide plots explicitly order their color and size legends in the final
+rendering entry point; unspecified guide ordering initially caused image-only
+reproduction differences even though all numerical results agreed.
+
+The final pipeline was run independently in a directory containing only code,
+configuration and the pinned raw data, with the same runtime/package library.
+All 42 compared final-analysis, final-report, figure, lock and prediction/CV
+files were byte-identical. Repeated scoring reproduces the same frozen rule;
+it is not further tuning. The separate code ZIP excludes raw/processed records,
+fitted caches and installed libraries and passes archive integrity checks.
+
+The final report documents incomplete model assumptions, population sensitivity,
+host influence and the limited independence of a holdout viewed during earlier
+EDA. Team names/UNIs remain absent and are explicitly marked incomplete in the
+payload and validation record; the team must supply them and review the report
+before submission. Numerical checks are not a claim that statistical assumptions
+hold or that classroom-specific requirements have been independently approved.

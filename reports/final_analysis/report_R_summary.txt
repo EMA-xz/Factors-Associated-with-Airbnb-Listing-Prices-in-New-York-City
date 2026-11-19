@@ -1,0 +1,24 @@
+
+Call:
+lm(formula = as.formula(refinement_formula), data = train3, na.action = na.fail)
+
+Residuals:
+    Min      1Q  Median      3Q     Max
+-1.7109 -0.3971 -0.0728  0.3153  4.4129
+
+Coefficients:
+                                           Estimate Std. Error t value Pr(>|t|)
+(Intercept)                                5.039857   0.017030 295.946  < 2e-16 ***
+boroughManhattan                           0.451737   0.016971  26.618  < 2e-16 ***
+room_typeEntire home/apt                   0.385362   0.018408  20.935  < 2e-16 ***
+log_accommodates                           0.449042   0.012828  35.005  < 2e-16 ***
+bedrooms                                   0.112506   0.006746  16.678  < 2e-16 ***
+within_stay_log_min                       -0.083317   0.016404  -5.079 3.85e-07 ***
+long_stay                                 -0.914670   0.013433 -68.090  < 2e-16 ***
+boroughManhattan:room_typeEntire home/apt -0.038346   0.022661  -1.692   0.0907 .
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.5794 on 11560 degrees of freedom
+Multiple R-squared:  0.5459,	Adjusted R-squared:  0.5456
+F-statistic:  1985 on 7 and 11560 DF,  p-value: < 2.2e-16

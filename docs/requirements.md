@@ -23,21 +23,21 @@ team must review any additional classroom instructions.
 The PDF says the final deadline is TBA, likely finals week. Confirm any later
 instructor announcement. The project is worth 10% with extra-credit potential.
 
-- [ ] Typed, organized report with labeled graphs, no more than around ten pages.
-- [ ] Separately submitted organized R/Rmd or other permitted code.
-- [ ] Do not paste the entire script into the report appendix.
+- [x] Typed, organized ten-page report with labeled graphs generated in reports/final_report/.
+- [x] Organized code and a separate code archive prepared; the team still needs to submit them.
+- [x] Do not paste the entire script into the report appendix.
 - [ ] Assess completeness, correctness, organization/neatness and creativity.
 
 The recommended inferential-report template is flexible; to cover it fully:
 
-- [ ] Introduction and focused EDA.
-- [ ] Data collection, variables and sample size.
-- [ ] Final model, R summary and transformations/interactions explained.
-- [ ] Relevant hypothesis tests with written answers to the research questions.
-- [ ] Model-selection rationale and relevant supporting output.
-- [ ] Diagnostic plots and validation.
-- [ ] Test MSPR compared with the fitted model's MSE on the same response scale.
-- [ ] Influential observations and any remedial measures.
+- [x] Introduction and focused EDA.
+- [x] Data collection, variables and sample size.
+- [x] Final model, R summary and transformations/interactions explained.
+- [x] Relevant hypothesis tests with written answers to the research questions.
+- [x] Model-selection rationale and relevant supporting output.
+- [x] Diagnostic plots and validation, with remaining limitations stated.
+- [x] Test MSPR compared with the fitted model's MSE on the same response scale.
+- [x] Influential observations and host deletion checks; no automatic exclusions.
 
 R is our implementation choice; Python and certain other languages are also
 allowed. The PDF prohibits Excel, Minitab and SPSS for the analysis. It discourages
@@ -54,11 +54,13 @@ AI-assisted sourcing of real data; follow any additional course AI rules.
 - [x] Fit training candidates after reviewing sample coverage and variable definitions.
 - [x] Generate training diagnostics, inferential tests, property-label sensitivity and influence checks.
 - [x] Document one training-driven functional-form revision and host-level internal validation.
-- [ ] Freeze the final specification and evaluate reserved hosts once.
-- [ ] Keep the report, including appendix, within approximately ten pages where possible.
-- [ ] Run the complete pipeline and cross-check the submitted report against its outputs.
+- [x] Freeze the final specification before evaluating reserved hosts; reruns only reproduce it.
+- [x] Keep the report, including appendix, to ten pages.
+- [x] Run the complete pipeline and cross-check the prepared report against its outputs.
 
-The training-stage work is in `reports/modeling/training_report.md`. It supplies
-material for the final-report sections above, but does not complete the final
-report, held-out evaluation or team review. Private room remains in the primary
-analysis and in the property-label sensitivity subset.
+The final work is in `reports/final_report/` and `reports/final_analysis/`.
+Private room remains in the primary analysis and the property-label sensitivity
+subset. The earlier training report is preserved as a historical artifact.
+Names/UNIs, team review, submission and any updated classroom instructions remain
+the team's responsibility. Completion of the analytical sections does not mean
+all regression assumptions are satisfied.

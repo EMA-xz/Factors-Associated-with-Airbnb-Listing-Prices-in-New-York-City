@@ -1,0 +1,172 @@
+{
+  "checks": [
+    {
+      "check": "PDF has ten pages",
+      "passed": true
+    },
+    {
+      "check": "DOCX has nine explicit page breaks",
+      "passed": true
+    },
+    {
+      "check": "Page 1 title",
+      "passed": true
+    },
+    {
+      "check": "Page 1 PDF content equals R payload",
+      "passed": true
+    },
+    {
+      "check": "Page 1 DOCX content equals R payload",
+      "passed": true
+    },
+    {
+      "check": "Page 2 title",
+      "passed": true
+    },
+    {
+      "check": "Figure embedded unchanged 04_report_raw_prices.png",
+      "passed": true
+    },
+    {
+      "check": "Figure embedded unchanged 05_report_log_prices.png",
+      "passed": true
+    },
+    {
+      "check": "Page 2 PDF content equals R payload",
+      "passed": true
+    },
+    {
+      "check": "Page 2 DOCX content equals R payload",
+      "passed": true
+    },
+    {
+      "check": "Page 3 title",
+      "passed": true
+    },
+    {
+      "check": "Figure embedded unchanged 06_report_group_prices.png",
+      "passed": true
+    },
+    {
+      "check": "Figure embedded unchanged 07_report_capacity.png",
+      "passed": true
+    },
+    {
+      "check": "Page 3 PDF content equals R payload",
+      "passed": true
+    },
+    {
+      "check": "Page 3 DOCX content equals R payload",
+      "passed": true
+    },
+    {
+      "check": "Page 4 title",
+      "passed": true
+    },
+    {
+      "check": "Page 4 PDF content equals R payload",
+      "passed": true
+    },
+    {
+      "check": "Page 4 DOCX content equals R payload",
+      "passed": true
+    },
+    {
+      "check": "Page 5 title",
+      "passed": true
+    },
+    {
+      "check": "Page 5 PDF content equals R payload",
+      "passed": true
+    },
+    {
+      "check": "Page 5 DOCX content equals R payload",
+      "passed": true
+    },
+    {
+      "check": "Page 6 title",
+      "passed": true
+    },
+    {
+      "check": "Figure embedded unchanged 08_report_contrasts.png",
+      "passed": true
+    },
+    {
+      "check": "Page 6 PDF content equals R payload",
+      "passed": true
+    },
+    {
+      "check": "Page 6 DOCX content equals R payload",
+      "passed": true
+    },
+    {
+      "check": "Page 7 title",
+      "passed": true
+    },
+    {
+      "check": "Page 7 PDF content equals R payload",
+      "passed": true
+    },
+    {
+      "check": "Page 7 DOCX content equals R payload",
+      "passed": true
+    },
+    {
+      "check": "Page 8 title",
+      "passed": true
+    },
+    {
+      "check": "Figure embedded unchanged 09_report_diagnostics.png",
+      "passed": true
+    },
+    {
+      "check": "Page 8 PDF content equals R payload",
+      "passed": true
+    },
+    {
+      "check": "Page 8 DOCX content equals R payload",
+      "passed": true
+    },
+    {
+      "check": "Page 9 title",
+      "passed": true
+    },
+    {
+      "check": "Page 9 PDF content equals R payload",
+      "passed": true
+    },
+    {
+      "check": "Page 9 DOCX content equals R payload",
+      "passed": true
+    },
+    {
+      "check": "Page 10 title",
+      "passed": true
+    },
+    {
+      "check": "Figure embedded unchanged 10_report_remaining_patterns.png",
+      "passed": true
+    },
+    {
+      "check": "Page 10 PDF content equals R payload",
+      "passed": true
+    },
+    {
+      "check": "Page 10 DOCX content equals R payload",
+      "passed": true
+    },
+    {
+      "check": "Payload source hash matches pinned raw file",
+      "passed": true
+    },
+    {
+      "check": "Payload model lock matches current lock",
+      "passed": true
+    }
+  ],
+  "all_passed": true,
+  "team_complete": false,
+  "pdf_pages": 10,
+  "note": "Numerical consistency and document content checks do not prove statistical-model assumptions or team readiness."
+}
