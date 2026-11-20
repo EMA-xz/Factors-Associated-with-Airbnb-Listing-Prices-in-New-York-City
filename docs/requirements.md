@@ -24,7 +24,7 @@ The PDF says the final deadline is TBA, likely finals week. Confirm any later
 instructor announcement. The project is worth 10% with extra-credit potential.
 
 - [x] Typed, organized ten-page report with labeled graphs generated in reports/final_report/.
-- [x] Organized code and a separate code archive prepared; the team still needs to submit them.
+- [x] Organized, self-contained `reports/submission/Airbnb_Project.R` prepared for separate upload; ZIP is not accepted. The team still needs to submit it with the report.
 - [x] Do not paste the entire script into the report appendix.
 - [ ] Assess completeness, correctness, organization/neatness and creativity.
 

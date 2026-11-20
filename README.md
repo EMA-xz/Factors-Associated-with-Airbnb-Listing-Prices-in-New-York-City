@@ -54,6 +54,30 @@ preserves the proposal-stage content and is not the final modeling report.
 
 ## Reproduce
 
+### Course submission: one R file
+
+Submit the report PDF and [Airbnb_Project.R](reports/submission/Airbnb_Project.R)
+as separate files on Canvas. The course does not accept ZIP submissions.
+This self-contained, readable R script includes all analytical code and the
+configuration it needs; no repository checkout or other script is required.
+Open it in RStudio and click **Source**, or run:
+
+```sh
+Rscript --vanilla Airbnb_Project.R
+```
+
+Use R 4.0 or newer and a writable working directory. On first run, internet
+access is needed for the fixed Inside Airbnb dataset and any missing R packages
+(`ggplot2`, `jsonlite`, `sandwich`). Outputs are created in
+`airbnb_submission_output/` under the working directory. The optional `ragg`
+package improves PNG rendering; numerical results do not depend on it.
+The script rebuilds the analyses, report figures, tables and report text in R;
+the separately supplied PDF is already typeset. Python is not needed to run
+the submitted R analysis. Historical integrity records are recreated from
+embedded plain text; numerical outputs are still recomputed from raw data.
+
+### Development repository and document rendering
+
 For the final analysis, install the R packages `ggplot2`, `jsonlite` and
 optionally `ragg`, then run from the repository root:
 
@@ -73,12 +97,11 @@ model searches. The freeze step stops if the model, split, coefficients or
 selection-code fingerprints change. Do not edit the lock to bypass that check
 after viewing test errors. The renderer uses only the R-generated payload.
 
-For submission, the separate [code archive](reports/final_report/analysis_code.zip)
-contains the organized R/Python scripts, configuration and documentation; raw
-data and installed libraries are excluded. Extract it, enter the extracted root
-directory, and use the same commands above. The first run downloads the pinned
-data if absent. Add the real team roster to `config/team.csv` and rebuild to
-populate the author line; this does not change the fitted model.
+The earlier ZIP is a development backup, not the course submission format.
+Add the real team roster to `config/team.csv` and rebuild to populate the
+report author line; this does not change the fitted model. Regenerate the
+single-file R submission with `python3 scripts/22_build_single_file_submission.py`
+after changes to its source modules or team configuration.
 
 ### Individual earlier stages
 
@@ -189,6 +212,8 @@ not mean an unsigned report is ready for submission or that a model is valid.
 - `scripts/19_verify_final_analysis.R`: independent prediction algebra, covariance and error accounting checks.
 - `scripts/20_validate_final_report.py`: validate final document content against the R payload and figures.
 - `scripts/21_package_code.py`: produce the separate reproducible code archive.
+- `scripts/22_build_single_file_submission.py`: inline the verified R analysis into one self-contained `.R` submission.
+- `reports/submission/Airbnb_Project.R`: the single R file to upload with the report PDF; no ZIP required.
 - `scripts/run_final_analysis.R`: organized R entry point for final analysis and numerical verification.
 - `config/team.csv`: team names/UNIs, currently a blank header awaiting real information.
 - `data/raw/`: unmodified compressed source data, local only.

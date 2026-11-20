@@ -127,3 +127,26 @@ EDA. Team names/UNIs remain absent and are explicitly marked incomplete in the
 payload and validation record; the team must supply them and review the report
 before submission. Numerical checks are not a claim that statistical assumptions
 hold or that classroom-specific requirements have been independently approved.
+
+## Single-file R submission verification on 2026-11-20
+
+The course submission accepts `.R` or `.Rmd`, not ZIP. The new
+`reports/submission/Airbnb_Project.R` includes the actual analytical code from
+20 source modules, with executable `source()` calls expanded in their original
+order. The fixed configuration, model lock and original source texts needed
+for historical fingerprint checks are embedded as readable plain text. No
+GitHub checkout, other script or precomputed model/output is needed to run it.
+`scripts/22_build_single_file_submission.py` generates this file without
+changing the statistical procedures or the frozen coefficients.
+
+The script passed R syntax parsing and ran successfully in an independent
+directory containing only the submitted R file. For this check, the unchanged
+pinned raw data were supplied through the documented `AIRBNB_RAW_DATA` option;
+the existing installed R packages were reused. First-run package installation
+and network download were not repeated in this check. In normal use, the
+script downloads the fixed data and installs missing dependencies if needed.
+All 28 training checks and 27 final checks passed. All 88 compared aggregate
+CSV outputs, final PNG figures, model-lock and report text/payload files were
+byte-identical to the existing report's inputs. Session information and the
+evaluation audit containing a serialized-model hash were not part of that
+byte comparison. The report PDF and statistical results were not changed.
