@@ -28,6 +28,12 @@ explains parsimony, common support and remaining limitations. Test scores are in
 [test_metrics.csv](reports/final_analysis/test_metrics.csv); the model was not
 retuned after inspecting them. Private room remains included.
 
+The revised report clarifies the observed nightly quote, collects model-variable
+definitions on page 4 and explains the M0-M4 selection steps on page 7. The
+[quote measurement audit](reports/audit/price_quote_measurement.csv) is computed
+from the original fields, distinguishing quoted stay length from a listing's
+minimum-stay requirement. This clarification does not change the sample or model.
+
 ### Earlier stage artifacts
 
 The initial Project Description is available as a
@@ -213,6 +219,7 @@ not mean an unsigned report is ready for submission or that a model is valid.
 - `scripts/20_validate_final_report.py`: validate final document content against the R payload and figures.
 - `scripts/21_package_code.py`: produce the separate reproducible code archive.
 - `scripts/22_build_single_file_submission.py`: inline the verified R analysis into one self-contained `.R` submission.
+- `scripts/23_audit_price_quotes.R`: verify nightly quote agreement, quote dates and stay durations directly from the pinned raw data.
 - `reports/submission/Airbnb_Project.R`: the single R file to upload with the report PDF; no ZIP required.
 - `scripts/run_final_analysis.R`: organized R entry point for final analysis and numerical verification.
 - `config/team.csv`: team names/UNIs, currently a blank header awaiting real information.

@@ -12,11 +12,13 @@ The final working model finds positive adjusted borough and room-type difference
 
 ## Data collection and scope
 
-We downloaded Inside Airbnb's NYC detailed-listings snapshot labeled 2026-09-14 on 2026-11-18 [1]. Its 29,918 unique listings and 90 fields were scraped from 2026-09-14 to 2026-09-15. Each row is a listing. The provider defines price as a daily amount in local currency [2]; NYC amounts are interpreted as USD, not realized transactions or total trip costs.
+We downloaded Inside Airbnb's NYC detailed-listings snapshot labeled 2026-09-14 on 2026-11-18 [1]. Its 29,918 unique listings and 90 fields were scraped from 2026-09-14 to 2026-09-15. Each row is a listing. We interpret price as the observed nightly USD amount, not a realized transaction or total trip cost [2].
 
 The scope is Manhattan and Brooklyn, retaining Entire home/apt and Private room. Of 23,440 scoped records, 8,794 (37.5%) lack a price. The EDA includes all 14,646 finite positive-price records. Requiring complete valid core covariates and a known host leaves 14,616 model records. No arbitrary price cap, tail deletion or imputation is applied.
 
-## Observed daily price summaries
+A direct audit finds that 14,645 of 14,646 EDA prices match price_quote_price_per_night at cent precision and have valid quote dates. Quoted stays of at least 30 nights account for 74.1% of EDA records. These are quote durations, distinct from minimum-stay requirements. The nightly amount may reflect requested dates, stay length and discounts; it is not a standardized one-night quote.
+
+## Observed nightly price summaries
 
 | Borough and room type | n | Median | Mean | SD |
 | --- | --- | --- | --- | --- |
@@ -53,14 +55,25 @@ Capacity distributions differ, and high-capacity private rooms are sparse. In Ma
 
 # Final statistical model
 
-We fit M3 by ordinary least squares to 11,568 saved training records from 5,564 hosts. The response is natural-log daily price; borough and room_type are factors with Brooklyn and Private room as reference levels. Guest capacity enters on a log scale; bedrooms enters linearly, allowing zero bedrooms. Ratings are omitted from the core model to avoid requiring reviewed listings.
+We fit M3 by ordinary least squares to 11,568 saved training records from 5,564 hosts. The variables below define the response, predictors and host grouping. Ratings are omitted to avoid restricting the sample to reviewed listings.
+
+| Variable | Definition and role |
+| --- | --- |
+| price / log_price | Observed nightly USD amount / its natural logarithm; log_price is the response. |
+| borough | Brooklyn (reference) or Manhattan; categorical location predictor. |
+| room_type | Private room (reference) or Entire home/apt; categorical room predictor. |
+| log_accommodates | Natural log of maximum guest capacity; listing-size predictor. |
+| bedrooms | Number of bedrooms, entered linearly; a reported zero is retained. |
+| long_stay | 1 if minimum_nights >= 30; 0 otherwise. This describes the requirement, not actual stay length. |
+| within_stay_log_min | log(minimum_nights) minus the training mean within the corresponding long_stay group. |
+| host_id | Host identifier for splitting and clustered uncertainty; not a regression predictor. |
 
 ```
 log_price ~ borough * room_type + log_accommodates + bedrooms +
   within_stay_log_min + long_stay
 ```
 
-long_stay indicates minimum_nights >= 30. within_stay_log_min is log(minimum_nights) minus its training mean in the corresponding stay regime: 0.3147 below 30 nights and 3.4262 at 30+ nights. Centering is an equivalent reparameterization of the stay terms. The long_stay coefficient compares the two group-specific centers, not a discontinuity at exactly 30 nights.
+The training means used for centering are 0.3147 below 30 nights and 3.4262 at 30+ nights. Centering reparameterizes the stay terms without changing fitted values. The long_stay coefficient compares these group-specific centers, not a discontinuity at 30 nights or the effect of extending a stay requirement.
 
 ## R summary output
 
@@ -148,11 +161,17 @@ Figure 5 uses training estimates and pointwise 95% intervals; model-selection un
 
 All models use identical primary training records. CV listing pools listing errors; CV host gives each validation host equal weight. All errors are on the natural-log-price scale. p includes the intercept.
 
-M0 contains borough and room type. M1 adds capacity, bedrooms, log minimum nights and long_stay. M2 adds the planned borough-by-room interaction. M3 logs capacity and centers log minimum nights within stay regimes. M4 additionally allows the log-capacity slope to differ by room type, motivated by M3 residual patterns.
+All candidates model log price: the right tail in Figures 1-2 motivates a proportional-price scale, without establishing normal residuals. M0 gives the borough and room-type baseline. M1 adds capacity and bedrooms to account for listing size, plus log minimum nights and long_stay to distinguish stay requirements across listings.
+
+M2 adds the planned borough-by-room interaction to test whether room contrasts differ by borough. It remains in M3 despite weak primary-sample interaction evidence.
+
+M3 uses log capacity because M2 residual-versus-capacity plots showed nonlinear mean patterns. Centering log minimum nights within stay groups changes interpretation and collinearity measures, not fitted values. Both saved-fold CV scores improve over M2. The Q-Q and scale-location plots still show tail and spread problems (Figure 6).
+
+M4 tests room-specific log-capacity slopes, motivated by the group-capacity residual patterns remaining under M3 (Figure 7).
 
 Five folds separate training hosts, using the original saved folds. Preprocessing is learned inside each fold. M4 improves listing-weighted CV MSE by 0.128% and equal-host CV MSE by 0.844% versus M3. The rule recorded before fitting M4 required at least 1% improvement in both, so M3 is retained for parsimony. This threshold is a practical choice, not a test of predictive superiority.
 
-The interaction is retained to answer the planned research question, rather than selected by a favorable p-value. Because model refinements arose from training diagnostics, these CV scores do not provide an unbiased assessment of the entire selection process. The final coefficients, preprocessing and prediction rule were recorded before reserved-host errors were calculated.
+Diagnostic-driven refinement limits the independence of these CV comparisons. The final coefficients, preprocessing and prediction rule were recorded before reserved-host errors were calculated; test scores did not select M3.
 
 ## Training support at capacity two and one bedroom
 
@@ -228,4 +247,4 @@ Within the final working model, Manhattan and entire-home listings have higher a
 
 [4] Inside Airbnb. Data Assumptions. https://insideairbnb.com/data-assumptions/
 
-Data are a snapshot of public listings [4]. Code, fixed-source fingerprints, sample rules, frozen specification and generated outputs accompany this report. Run scripts/run_final_analysis.R for R analysis, then scripts/18_build_final_report.py for document rendering. Raw and processed row-level data are regenerated locally. Code is submitted separately rather than pasted into this appendix.
+Data are a snapshot of public listings [4]. The separately submitted Airbnb_Project.R downloads the fixed data and regenerates the analysis, figures, tables, quote audit and report text. Run the whole file in RStudio or with Rscript --vanilla Airbnb_Project.R; no other project files are needed. The development repository additionally provides PDF/Word rendering scripts.

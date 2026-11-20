@@ -42,6 +42,14 @@ The audit retains quote fields in the original source but does not substitute
 them for missing `price`. The provider's older dictionary does not document all
 newer quote fields; investigate them before making any such change.
 
+The later measurement audit in `scripts/23_audit_price_quotes.R` directly checks
+the supplied nightly quote amount, quote dates and discount metadata. Its
+aggregate results are in `reports/audit/price_quote_measurement.csv`. The report
+now defines the response as the snapshot's observed nightly amount for a dated
+quote, which may reflect stay length and discounts. Quote duration and the
+listing's minimum-stay requirement are distinct. This clarification neither
+fills missing prices nor changes the model, sample, split or prediction rule.
+
 ## Generated first four figures
 
 1. Raw daily listing-price histogram, USD, with any display restriction disclosed.

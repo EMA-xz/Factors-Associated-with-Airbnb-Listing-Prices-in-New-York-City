@@ -58,7 +58,7 @@ header = '''# NYC AIRBNB PRICE PROJECT -- SINGLE-FILE R SUBMISSION
 #
 # CONTENTS
 # 1. Setup and embedded historical integrity records.
-# 2. Source data, audit, descriptive statistics and four exploratory figures.
+# 2. Source data, price-quote audit, summaries and four exploratory figures.
 # 3. Host-level split, candidate models, clustered inference and diagnostics.
 # 4. Training-only refinement, CV, population sensitivity and influence checks.
 # 5. Frozen-model verification and reserved-host prediction evaluation.

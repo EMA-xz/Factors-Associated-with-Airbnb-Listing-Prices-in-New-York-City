@@ -56,5 +56,17 @@ verify("Sensitivity training remains primary subset",all(z$sensitivity_training$
 for(file in names(lock$selection_source_md5))verify(paste("Locked selection source",file),unname(tools::md5sum(file))==lock$selection_source_md5[[file]])
 payload<-jsonlite::fromJSON("reports/final_report/report_payload.json",simplifyVector=FALSE)
 verify("Ten-page payload uses frozen model",length(payload$pages)==10 && payload$model==lock$model && payload$model_lock_md5==unname(tools::md5sum("config/final_model_lock.json")))
+# Independently match the existing EDA IDs to raw quote fields. This is a
+# measurement audit only; no model or evaluation rule is revised from it.
+qa<-read.csv("reports/audit/price_quote_measurement.csv")
+eda_ids<-read.csv("data/processed/eda_positive_price.csv",colClasses="character")$id
+qr<-read.csv(gzfile("data/raw/nyc_listings_2026-09-14.csv.gz"),colClasses="character",check.names=FALSE,na.strings=c("","NA"))
+qr<-qr[match(eda_ids,qr$id),]
+verify("Quote audit uses the same EDA listings",nrow(qr)==qa$eda_n && !anyNA(qr$id) && !anyDuplicated(qr$id))
+qp<-as.numeric(gsub("[$,]","",qr$price));qn<-as.numeric(qr$price_quote_price_per_night)
+verify("Quoted nightly amount agreement recomputed",sum(!is.na(qn) & abs(qp-qn)<.005)==qa$price_matches_quote_at_cent_precision_n && sum(is.na(qn))==qa$quote_amount_missing_n)
+qd<-as.integer(as.Date(qr$price_quote_checkout_date)-as.Date(qr$price_quote_checkin_date))
+verify("Quoted stay duration recomputed from dates",sum(qd>=30,na.rm=TRUE)==qa$quoted_stay_ge30_n && abs(100*mean(qd>=30,na.rm=TRUE)-qa$quoted_stay_ge30_pct_of_eda)<1e-10)
+verify("Quote duration distinct from minimum requirement",sum(as.numeric(qr$minimum_nights)>=30,na.rm=TRUE)==qa$minimum_requirement_ge30_n)
 write.csv(checks,"reports/final_analysis/final_computation_validation.csv",row.names=FALSE)
 cat(nrow(checks),"final numerical and integrity checks passed.\n")

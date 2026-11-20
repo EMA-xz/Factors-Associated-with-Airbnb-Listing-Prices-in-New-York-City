@@ -150,3 +150,35 @@ CSV outputs, final PNG figures, model-lock and report text/payload files were
 byte-identical to the existing report's inputs. Session information and the
 evaluation audit containing a serialized-model hash were not part of that
 byte comparison. The report PDF and statistical results were not changed.
+
+## Report clarification and quote audit on 2026-11-20
+
+After reviewing suggested edits, the final report adds a nightly-price
+measurement explanation on page 1, a variable dictionary beside the model on
+page 4, and the statistical motivation for the M0-M4 sequence on page 7. The
+reproducibility paragraph now names the separately submitted single `.R` file.
+No sample, model-selection rule, coefficient, test decision or held-out
+prediction changed. The earlier Project Description remains a historical
+proposal-stage artifact.
+
+The new quote audit reads the pinned raw fields and computes its counts in R;
+none are transcribed from the review screenshots. Independent checks match
+the existing EDA IDs to the raw records, recalculate quote agreement and date
+durations, and distinguish duration from minimum-stay requirements. All 28
+training checks and 31 final/measurement checks pass. Against the previous
+commit, all 86 compared existing numerical CSV, final figure and model-lock
+files are byte-identical (the expanded validation checklist is excluded).
+
+The rebuilt standalone `.R` ran successfully in a separate directory with the
+same pinned raw file and installed R packages. All 90 compared aggregate,
+figure, report-text/payload and model-lock files match the repository run
+byte-for-byte. As before, this check reused cached raw data and installed
+packages rather than repeating network download and package installation.
+
+The PDF/Word builder passes all 41 document-content checks. The standalone PDF
+and separately rendered Word file each have ten pages; every rendered Word
+page's text and tables also match its corresponding payload page. A blank page
+caused by the expanded selection discussion was removed by shortening repeated
+wording, without shrinking body text. All rendered Word pages and the four
+changed PDF pages were visually reviewed; the other six PDF pages are pixel-
+identical to their previously inspected versions.

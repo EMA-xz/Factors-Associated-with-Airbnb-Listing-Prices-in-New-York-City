@@ -75,7 +75,8 @@ def docx_table(doc, block):
                 shade.set(qn("w:fill"), "E8EBEE")
                 props.append(shade)
             for para in cell.paragraphs:
-                para.alignment = WD_ALIGN_PARAGRAPH.LEFT if ci == 0 else WD_ALIGN_PARAGRAPH.RIGHT
+                align = block.get("align", ["left"] + ["right"] * (len(block["headers"])-1))[ci]
+                para.alignment = WD_ALIGN_PARAGRAPH.LEFT if align == "left" else WD_ALIGN_PARAGRAPH.RIGHT
                 para.paragraph_format.space_after = Pt(0)
                 para.paragraph_format.line_spacing = 1.0
                 for run in para.runs:
@@ -194,7 +195,8 @@ def build_pdf():
                 content.append(Spacer(1,7))
             elif kind=="table":
                 rows=[b["headers"]]+b["rows"]
-                data=[[para(x,cell_style if j==0 else cell_right) for j,x in enumerate(row)] for row in rows]
+                align=b.get("align", ["left"] + ["right"] * (len(b["headers"])-1))
+                data=[[para(x,cell_style if align[j]=="left" else cell_right) for j,x in enumerate(row)] for row in rows]
                 table=Table(data,colWidths=[w*72 for w in b["widths"]],hAlign="CENTER",repeatRows=1)
                 table.setStyle(TableStyle([("BACKGROUND",(0,0),(-1,0),colors.HexColor("#E8EBEE")),
                     ("GRID",(0,0),(-1,-1),.4,colors.HexColor("#D9D9D9")),

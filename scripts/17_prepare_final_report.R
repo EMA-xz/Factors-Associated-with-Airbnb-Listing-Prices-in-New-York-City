@@ -1,6 +1,7 @@
 # Full analytical entry point. Recomputations verify the frozen specification;
 # they do not choose models from test scores. All report numbers originate in R.
 source("scripts/04_generate_eda.R")
+source("scripts/23_audit_price_quotes.R")
 dir.create("figures/final",recursive=TRUE,showWarnings=FALSE)
 report_theme<-theme_minimal(base_size=11)+theme(panel.grid.minor=element_blank(),legend.position="top",
   legend.title=element_blank(),plot.title=element_text(size=12,face="bold"),plot.subtitle=element_text(size=9),
@@ -74,7 +75,11 @@ P<-function(s)list(type="paragraph",text=s)
 S<-function(s)list(type="small",text=s)
 H<-function(s)list(type="heading",text=s)
 F<-function(s,w=6.8)list(type="figure",file=paste0("figures/final/",s),width=w)
-T<-function(headers,rows,widths)list(type="table",headers=headers,rows=rows,widths=widths)
+T<-function(headers,rows,widths,align=NULL) {
+  b<-list(type="table",headers=headers,rows=rows,widths=widths)
+  if(!is.null(align))b$align<-align
+  b
+}
 V<-function(s)list(type="verbatim",text=s)
 old_width<-getOption("width");options(width=115)
 rsummary<-trim_model_output(capture.output(summary(f)));options(width=old_width)
@@ -93,9 +98,10 @@ pages<-list(
   P("We examine whether advertised Airbnb prices differ by borough and room type after adjustment for guest capacity, bedrooms and minimum-stay requirements. We ask whether borough differences persist within each room type, whether room-type differences persist within each borough, and whether the room-type association varies by borough. These are observational associations, not effects of changing a listing's location or room type."),
   P(sprintf("The final working model finds positive adjusted borough and room-type differences, but weak evidence for the borough-by-room interaction in the primary sample (host-cluster p %s). The interaction evidence changes in the property-label sensitivity sample. Reserved-host log-price MSPR is %s, compared with training residual MSE %s. Remaining residual patterns and missing-price selection limit interpretation.",pval(wp$p[3]),num(tm$test_MSPR,4),num(tm$training_MSE,4))),
   H("Data collection and scope"),
-  P(sprintf("We downloaded Inside Airbnb's NYC detailed-listings snapshot labeled %s on 2026-11-18 [1]. Its %s unique listings and %s fields were scraped from %s to %s. Each row is a listing. The provider defines price as a daily amount in local currency [2]; NYC amounts are interpreted as USD, not realized transactions or total trip costs.",manifest$snapshot_label,num(manifest$raw_rows),num(manifest$raw_columns),manifest$observed_scrape_min,manifest$observed_scrape_max)),
+  P(sprintf("We downloaded Inside Airbnb's NYC detailed-listings snapshot labeled %s on 2026-11-18 [1]. Its %s unique listings and %s fields were scraped from %s to %s. Each row is a listing. We interpret price as the observed nightly USD amount, not a realized transaction or total trip cost [2].",manifest$snapshot_label,num(manifest$raw_rows),num(manifest$raw_columns),manifest$observed_scrape_min,manifest$observed_scrape_max)),
   P(sprintf("The scope is Manhattan and Brooklyn, retaining Entire home/apt and Private room. Of %s scoped records, %s (%s) lack a price. The EDA includes all %s finite positive-price records. Requiring complete valid core covariates and a known host leaves %s model records. No arbitrary price cap, tail deletion or imputation is applied.",num(sum(covg$scoped_n)),num(sum(covg$missing_price_n)),percent(100*sum(covg$missing_price_n)/sum(covg$scoped_n)),num(op$sample_n),num(flow$n[4]))),
-  H("Observed daily price summaries"),T(c("Borough and room type","n","Median","Mean","SD"),price_rows,c(2,.65,1.1,1.1,1.1)),
+  P(sprintf("A direct audit finds that %s of %s EDA prices match price_quote_price_per_night at cent precision and have valid quote dates. Quoted stays of at least 30 nights account for %s of EDA records. These are quote durations, distinct from minimum-stay requirements. The nightly amount may reflect requested dates, stay length and discounts; it is not a standardized one-night quote.",num(price_quote_audit$matching_price_with_valid_quote_dates_n),num(price_quote_audit$eda_n),percent(price_quote_audit$quoted_stay_ge30_pct_of_eda))),
+  H("Observed nightly price summaries"),T(c("Borough and room type","n","Median","Mean","SD"),price_rows,c(2,.65,1.1,1.1,1.1)),
   S("Source: fixed Inside Airbnb snapshot; positive-price EDA sample. These are unadjusted summaries. Sample composition and model eligibility are distinct from the EDA inclusion rule.")
  )),
  list(title="Exploratory price distributions",blocks=list(
@@ -113,9 +119,19 @@ pages<-list(
   P(sprintf("Capacity distributions differ, and high-capacity private rooms are sparse. In Manhattan, %s of %s private-room listings (%s) have hotel/hostel/resort text in property_type. This motivates a prespecified sensitivity analysis; Private room itself remains included.",num(mh_hotel$hotel_like_label_n),num(mh_hotel$n),percent(mh_hotel$hotel_like_label_pct)))
  )),
  list(title="Final statistical model",blocks=list(
-  P(sprintf("We fit M3 by ordinary least squares to %s saved training records from %s hosts. The response is natural-log daily price; borough and room_type are factors with Brooklyn and Private room as reference levels. Guest capacity enters on a log scale; bedrooms enters linearly, allowing zero bedrooms. Ratings are omitted from the core model to avoid requiring reviewed listings.",num(tm$training_n),num(tm$training_hosts))),
+  P(sprintf("We fit M3 by ordinary least squares to %s saved training records from %s hosts. The variables below define the response, predictors and host grouping. Ratings are omitted to avoid restricting the sample to reviewed listings.",num(tm$training_n),num(tm$training_hosts))),
+  T(c("Variable","Definition and role"),list(
+    c("price / log_price","Observed nightly USD amount / its natural logarithm; log_price is the response."),
+    c("borough","Brooklyn (reference) or Manhattan; categorical location predictor."),
+    c("room_type","Private room (reference) or Entire home/apt; categorical room predictor."),
+    c("log_accommodates","Natural log of maximum guest capacity; listing-size predictor."),
+    c("bedrooms","Number of bedrooms, entered linearly; a reported zero is retained."),
+    c("long_stay","1 if minimum_nights >= 30; 0 otherwise. This describes the requirement, not actual stay length."),
+    c("within_stay_log_min","log(minimum_nights) minus the training mean within the corresponding long_stay group."),
+    c("host_id","Host identifier for splitting and clustered uncertainty; not a regression predictor.")
+  ),c(1.65,4.4),c("left","left")),
   V("log_price ~ borough * room_type + log_accommodates + bedrooms +\n  within_stay_log_min + long_stay"),
-  P(sprintf("long_stay indicates minimum_nights >= 30. within_stay_log_min is log(minimum_nights) minus its training mean in the corresponding stay regime: %s below 30 nights and %s at 30+ nights. Centering is an equivalent reparameterization of the stay terms. The long_stay coefficient compares the two group-specific centers, not a discontinuity at exactly 30 nights.",num(z$centers["0"],4),num(z$centers["1"],4))),
+  P(sprintf("The training means used for centering are %s below 30 nights and %s at 30+ nights. Centering reparameterizes the stay terms without changing fitted values. The long_stay coefficient compares these group-specific centers, not a discontinuity at 30 nights or the effect of extending a stay requirement.",num(z$centers["0"],4),num(z$centers["1"],4))),
   H("R summary output"),V(paste(rsummary,collapse="\n")),
   P("This R summary reports ordinary independent-error standard errors and tests. The main inference on the next page instead uses host-cluster HC1 covariance [3], since a host can contribute multiple listings. The coefficient estimates are unchanged; their uncertainty estimates differ."),
   S("The borough-by-room interaction permits different room contrasts across boroughs. exp(a log contrast) is a fitted conditional geometric-mean ratio; it is not an arithmetic-mean dollar ratio unless additional distributional assumptions are made.")
@@ -140,9 +156,12 @@ pages<-list(
  list(title="Appendix A Model selection and support",blocks=list(
   T(c("Model","p","Adj R2","Train MSE","CV listing","CV host"),selection_rows,c(.55,.4,.8,1,1.25,1.25)),
   S("All models use identical primary training records. CV listing pools listing errors; CV host gives each validation host equal weight. All errors are on the natural-log-price scale. p includes the intercept."),
-  P("M0 contains borough and room type. M1 adds capacity, bedrooms, log minimum nights and long_stay. M2 adds the planned borough-by-room interaction. M3 logs capacity and centers log minimum nights within stay regimes. M4 additionally allows the log-capacity slope to differ by room type, motivated by M3 residual patterns."),
+  P("All candidates model log price: the right tail in Figures 1-2 motivates a proportional-price scale, without establishing normal residuals. M0 gives the borough and room-type baseline. M1 adds capacity and bedrooms to account for listing size, plus log minimum nights and long_stay to distinguish stay requirements across listings."),
+  P("M2 adds the planned borough-by-room interaction to test whether room contrasts differ by borough. It remains in M3 despite weak primary-sample interaction evidence."),
+  P("M3 uses log capacity because M2 residual-versus-capacity plots showed nonlinear mean patterns. Centering log minimum nights within stay groups changes interpretation and collinearity measures, not fitted values. Both saved-fold CV scores improve over M2. The Q-Q and scale-location plots still show tail and spread problems (Figure 6)."),
+  P("M4 tests room-specific log-capacity slopes, motivated by the group-capacity residual patterns remaining under M3 (Figure 7)."),
   P(sprintf("Five folds separate training hosts, using the original saved folds. Preprocessing is learned inside each fold. M4 improves listing-weighted CV MSE by %s%% and equal-host CV MSE by %s%% versus M3. The rule recorded before fitting M4 required at least 1%% improvement in both, so M3 is retained for parsimony. This threshold is a practical choice, not a test of predictive superiority.",num(100*decision$listing_CV_improvement,3),num(100*decision$equal_host_CV_improvement,3))),
-  P("The interaction is retained to answer the planned research question, rather than selected by a favorable p-value. Because model refinements arose from training diagnostics, these CV scores do not provide an unbiased assessment of the entire selection process. The final coefficients, preprocessing and prediction rule were recorded before reserved-host errors were calculated."),
+  P("Diagnostic-driven refinement limits the independence of these CV comparisons. The final coefficients, preprocessing and prediction rule were recorded before reserved-host errors were calculated; test scores did not select M3."),
   H("Training support at capacity two and one bedroom"),
   T(c("Borough and room type","Minimum stay below 30","Minimum stay 30 or more"),support_rows,c(2.65,1.7,1.7)),
   P(sprintf("Across all capacities and bedrooms, %s joint capacity-bedroom-stay cells contain at least 20 records in every group, covering %s%% of training listings. This check supports common profiles but not every combination. Exact minimum-night overlap and unobserved characteristics are not guaranteed.",num(z$support$joint_cells_all_four_groups_at_least20),num(z$support$pct_in_those_cells,1)))
@@ -177,7 +196,7 @@ pages<-list(
   S("[2] Inside Airbnb. Data Dictionary, detailed listings, version 4.3 (August 2022), linked from the source download page. https://docs.google.com/spreadsheets/d/1iWCNJcSutYqpULSQHlNyGInUvHg2BoUGoNRIGa6Szc4/edit"),
   S("[3] sandwich package. Clustered Covariance Matrix Estimation, vcovCL documentation. https://sandwich.r-forge.r-project.org/reference/vcovCL.html"),
   S("[4] Inside Airbnb. Data Assumptions. https://insideairbnb.com/data-assumptions/"),
-  S("Data are a snapshot of public listings [4]. Code, fixed-source fingerprints, sample rules, frozen specification and generated outputs accompany this report. Run scripts/run_final_analysis.R for R analysis, then scripts/18_build_final_report.py for document rendering. Raw and processed row-level data are regenerated locally. Code is submitted separately rather than pasted into this appendix.")
+  S("Data are a snapshot of public listings [4]. The separately submitted Airbnb_Project.R downloads the fixed data and regenerates the analysis, figures, tables, quote audit and report text. Run the whole file in RStudio or with Rscript --vanilla Airbnb_Project.R; no other project files are needed. The development repository additionally provides PDF/Word rendering scripts.")
  ))
 )
 dir.create("reports/final_report",recursive=TRUE,showWarnings=FALSE)

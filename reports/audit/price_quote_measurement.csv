@@ -1,0 +1,2 @@
+"eda_n","quote_amount_observed_n","price_matches_quote_at_cent_precision_n","price_differs_from_quote_n","quote_amount_missing_n","valid_quote_dates_n","matching_price_with_valid_quote_dates_n","quoted_stay_ge30_n","quoted_stay_ge30_pct_of_eda","minimum_requirement_ge30_n","explicit_positive_discount_n"
+14646,14645,14645,0,1,14646,14645,10860,74.1499385497747,10850,5563
